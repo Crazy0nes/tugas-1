@@ -3,6 +3,14 @@
 using namespace std;
 
 int main(){
+
+    struct Lagu{
+        string judulLagu;
+        string penyanyi;
+        string genre;
+        int tahun;
+    };Lagu song[100];
+
     cout << "Playlist Lagu" << endl;
     cout << setfill('=') << setw(15) << "=" << endl;
     cout << setfill(' ') << setw(3) << "1. " << "Tambah lagu" << endl;
@@ -11,6 +19,8 @@ int main(){
     cout << "Pilih Menu: ";
     int menu;
     cin >> menu;
+    
+    do{
     switch (menu){
         case 1:
             cout << "Tambah lagu" << endl;
@@ -19,15 +29,13 @@ int main(){
             cin >> jumlahLagu;
             for(int i = 0; i < jumlahLagu; i++){
                 cout << "Masukkan judul Lagu: ";
-                string judulLagu, penyanyi, genre; 
-                int tahun;
-                cin >> judulLagu;
+                cin >> song[i].judulLagu;
                 cout << "Masukkan penyanyi: ";
-                cin >> penyanyi;
+                cin >> song[i].penyanyi;
                 cout << "Masukkan genre: ";
-                cin >> genre;
+                cin >> song[i].genre;
                 cout << "Masukkan tahun: ";
-                cin >> tahun; cout << endl << endl; 
+                cin >> song[i].tahun ; cout << endl << endl; 
             }
             break;
 
@@ -46,6 +54,9 @@ int main(){
         default:
             cout << "Menu tidak tersedia" << endl;
             break;
-    }
+
+        }
+        
+    }while(menu != 3);
     return 0;
 }
